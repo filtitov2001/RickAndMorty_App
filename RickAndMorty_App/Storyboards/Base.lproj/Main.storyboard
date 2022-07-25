@@ -8,16 +8,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Character Table View Controller-->
         <scene sceneID="omU-Tj-p37">
             <objects>
-                <tableViewController id="d47-AE-71I" sceneMemberID="viewController">
+                <tableViewController id="d47-AE-71I" customClass="CharacterTableViewController" customModule="RickAndMorty_App" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="XdE-rC-2y0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="70" id="gNT-9s-R8X">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="70" id="gNT-9s-R8X" customClass="TableViewCell" customModule="RickAndMorty_App" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gNT-9s-R8X" id="r0w-ex-REK">
@@ -49,6 +49,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="characterImageView" destination="ORo-xC-Lgf" id="GIx-qV-i2w"/>
+                                    <outlet property="nameLabel" destination="xk7-ju-ehs" id="9sH-PO-zwt"/>
                                     <segue destination="jPG-Wy-6bZ" kind="show" id="w7H-A1-cCx"/>
                                 </connections>
                             </tableViewCell>
@@ -59,18 +61,26 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="vJ8-DB-fvi">
-                        <barButtonItem key="leftBarButtonItem" title="Prev" id="0Fl-1m-sDa"/>
-                        <barButtonItem key="rightBarButtonItem" title="Next" id="c6H-0k-OkT"/>
+                        <barButtonItem key="leftBarButtonItem" title="Prev" id="0Fl-1m-sDa">
+                            <connections>
+                                <action selector="updateData:" destination="d47-AE-71I" id="Fzc-Yx-K0N"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" tag="1" title="Next" id="c6H-0k-OkT">
+                            <connections>
+                                <action selector="updateData:" destination="d47-AE-71I" id="80a-IP-4Yk"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c6d-Tt-fF4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1002.8985507246377" y="-102.45535714285714"/>
         </scene>
-        <!--View Controller-->
+        <!--Character Details View Controller-->
         <scene sceneID="Wde-tK-fnU">
             <objects>
-                <viewController id="jPG-Wy-6bZ" sceneMemberID="viewController">
+                <viewController id="jPG-Wy-6bZ" customClass="CharacterDetailsViewController" customModule="RickAndMorty_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7SO-S8-fza">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -82,7 +92,7 @@
                                     <constraint firstAttribute="height" constant="240" id="Z2X-ZP-14E"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9nz-9o-sTZ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9nz-9o-sTZ">
                                 <rect key="frame" x="16" y="436" width="382" height="0.0"/>
                                 <fontDescription key="fontDescription" name="AppleColorEmoji" family="Apple Color Emoji" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -106,6 +116,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="characterImageView" destination="AZ5-by-YlR" id="Oyn-pd-8td"/>
+                        <outlet property="descriptionLabel" destination="9nz-9o-sTZ" id="cHK-E1-o61"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cKO-8J-yu5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -114,7 +128,7 @@
         <!--Episodes-->
         <scene sceneID="vtA-Cx-Zqj">
             <objects>
-                <tableViewController id="dGs-I3-1ai" sceneMemberID="viewController">
+                <tableViewController id="dGs-I3-1ai" customClass="EpisodesViewController" customModule="RickAndMorty_App" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="emd-0o-n3v">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -153,10 +167,10 @@
             </objects>
             <point key="canvasLocation" x="3371" y="-102"/>
         </scene>
-        <!--View Controller-->
+        <!--Episode Details View Controller-->
         <scene sceneID="hsr-Ia-wJ2">
             <objects>
-                <viewController id="cnP-nr-Okn" sceneMemberID="viewController">
+                <viewController id="cnP-nr-Okn" customClass="EpisodeDetailsViewController" customModule="RickAndMorty_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="s20-o0-XRm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -177,7 +191,7 @@
                                 <rect key="frame" x="0.0" y="217" width="414" height="625"/>
                                 <color key="backgroundColor" red="0.091955266889999998" green="0.13073191049999999" blue="0.25099259610000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="70" id="eUs-Bn-916">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="70" id="eUs-Bn-916" customClass="TableViewCell" customModule="RickAndMorty_App" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eUs-Bn-916" id="QF9-Fm-mJd">
@@ -208,8 +222,16 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.082352941176470587" green="0.13333333333333333" blue="0.25882352941176467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="characterImageView" destination="vrA-N9-7X4" id="Dm7-GD-Jbn"/>
+                                            <outlet property="nameLabel" destination="tTq-4x-nWZ" id="e2W-sW-ZM0"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="cnP-nr-Okn" id="4aW-yN-aBC"/>
+                                    <outlet property="delegate" destination="cnP-nr-Okn" id="V25-pa-kDQ"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Euz-PN-Do8"/>
@@ -228,6 +250,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="Huv-kS-hK1"/>
                     <connections>
+                        <outlet property="episodeDescriptionLabel" destination="tLG-OZ-McU" id="eMo-uj-xgp"/>
+                        <outlet property="tableView" destination="2Bb-LC-YyC" id="tmo-qn-W6k"/>
                         <segue destination="VJg-Um-wmb" kind="show" identifier="showCharacter" id="igC-OM-vup"/>
                     </connections>
                 </viewController>
@@ -235,10 +259,10 @@
             </objects>
             <point key="canvasLocation" x="4142.0289855072469" y="-102.45535714285714"/>
         </scene>
-        <!--View Controller-->
+        <!--Character Details View Controller-->
         <scene sceneID="UKm-kd-pTZ">
             <objects>
-                <viewController id="VJg-Um-wmb" sceneMemberID="viewController">
+                <viewController id="VJg-Um-wmb" customClass="CharacterDetailsViewController" customModule="RickAndMorty_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QA9-fH-rxL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -268,6 +292,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="wdJ-Af-NfR"/>
+                    <connections>
+                        <outlet property="characterImageView" destination="4Mg-1H-Dah" id="chR-oN-NFk"/>
+                        <outlet property="descriptionLabel" destination="gQH-o0-WkN" id="mmg-WO-k8a"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dyp-M1-Zgv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
