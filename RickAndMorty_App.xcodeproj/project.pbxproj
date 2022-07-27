@@ -19,6 +19,7 @@
 		2B2E759C288B1CE900825BAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B2E759A288B1CE900825BAD /* Main.storyboard */; };
 		2B2E759E288B1CED00825BAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B2E759D288B1CED00825BAD /* Assets.xcassets */; };
 		2B2E75A1288B1CED00825BAD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B2E759F288B1CED00825BAD /* LaunchScreen.storyboard */; };
+		2B7B4D1828914C4100B8884D /* CharacterImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7B4D1728914C4100B8884D /* CharacterImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		2B2E759D288B1CED00825BAD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2B2E75A0288B1CED00825BAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2B2E75A2288B1CED00825BAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B7B4D1728914C4100B8884D /* CharacterImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				2B12A66C288F405D00A6DF1F /* TableViewCell.swift */,
+				2B7B4D1728914C4100B8884D /* CharacterImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 				2B12A670288F437800A6DF1F /* CharacterTableViewController.swift in Sources */,
 				2B12A66A288F36DB00A6DF1F /* NetworkManager.swift in Sources */,
 				2B12A677288F527000A6DF1F /* EpisodeDetailsViewController.swift in Sources */,
+				2B7B4D1828914C4100B8884D /* CharacterImageView.swift in Sources */,
 				2B12A667288F311900A6DF1F /* RickAndMorty.swift in Sources */,
 				2B2E7595288B1CE900825BAD /* AppDelegate.swift in Sources */,
 				2B2E7597288B1CE900825BAD /* SceneDelegate.swift in Sources */,
